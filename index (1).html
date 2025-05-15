@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+    n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '569142969563206');
+    
+    fbq('track', 'Purchase');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" alt="Pixel"
+      src="https://www.facebook.com/tr?id=569142969563206&ev=Purchase&noscript=1"/>
+     </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pagamento confirmado! Você será redirecionado ao grupo VIP no Telegram.">
+  <title>Redirecionando...</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .background {
+      background: url('https://i.postimg.cc/jjj3WDmY/fundo-colorido-desfocado-vivido.jpg') no-repeat center center;
+      background-size: cover;
+      filter: blur(10px);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="content">
+    <h1>😈 PAGAMENTO CONFIRMADO 😈</h1>
+    <p>Você está sendo redirecionado para o grupo VIP no Telegram...</p>
+  </div>
+
+  <script>
+    const purchaseKey = 'purchaseTracked';
+    const telegramURL = 'https://t.me/+wRfaGnU8hSxmNjVh';
+
+    // Função para redirecionar e rastrear
+    function redirectWithTracking() {
+      if (!localStorage.getItem(purchaseKey)) {
+        fbq('track', 'Purchase');
+        localStorage.setItem(purchaseKey, 'true');
+      }
+
+      // Redireciona após um pequeno atraso
+      setTimeout(() => {
+        window.location.href = telegramURL;
+      }, 2000); // 2 segundos
+    }
+
+    redirectWithTracking();
+  </script>
+</body>
+</html>
