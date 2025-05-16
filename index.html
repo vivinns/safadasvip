@@ -13,13 +13,12 @@
     'https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '569142969563206');
-    fbq('track', 'Pageview');
-    fbq('track', 'Purchase');
+    fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none" alt="Pixel"
-      src="https://www.facebook.com/tr?id=569142969563206&ev=Pageview&noscript=1"/>
-     </noscript>
+      src="https://www.facebook.com/tr?id=569142969563206&ev=PageView&noscript=1"/>
+  </noscript>
   <!-- End Meta Pixel Code -->
 
   <meta charset="UTF-8">
@@ -84,17 +83,19 @@
     const purchaseKey = 'purchaseTracked';
     const telegramURL = 'https://t.me/+wRfaGnU8hSxmNjVh';
 
-    // Função para redirecionar e rastrear
     function redirectWithTracking() {
       if (!localStorage.getItem(purchaseKey)) {
-        fbq('track', 'Purchase');
+        fbq('track', 'Purchase', {
+          value: 20.00,         // Altere esse valor conforme seu produto
+          currency: 'BRL'
+        });
         localStorage.setItem(purchaseKey, 'true');
       }
 
-      // Redireciona após um pequeno atraso
+      // Aguarda 3 segundos para garantir que o evento seja enviado
       setTimeout(() => {
         window.location.href = telegramURL;
-      }, 2000); // 2 segundos
+      }, 3000);
     }
 
     redirectWithTracking();
